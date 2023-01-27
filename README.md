@@ -45,7 +45,7 @@ Target variable will be `class`
 
 ### ![](/img/correlation_plot.jpg)
 
-* The variables in general doesn't have correlation with each other and with the target variable. 
+* The variables in general have a very low correlation with each other and with the target variable. 
 
 ### Age vs FNLWGT per class
 
