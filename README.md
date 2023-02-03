@@ -50,23 +50,16 @@ Prediction task is to determine whether a person makes over 50K a year.
 
 ## Explanatory Analysis
 
-### Age histogram and Boxplot
-
-![](/img/age_histogram_age_boxplot.jpg)
-
-* The age distribution is right skewed
-* Median age = 37
-
 ### ![](/img/correlation_plot.jpg)
 
 * The variables in general have a very low correlation with each other and with the target variable. 
 
-### Age vs FNLWGT per class
+### Age vs Capital Gain per class
 
 ![](/img/age_vs_fnlwgt_per_class.jpg)
 
 * The line plot shows the aggregation over multiple `y` values at each value of `x` and shows an estimate of the central tendency (mean in this case) and a confidence interval for that estimate.
-* Then, we see that in both classes the central tendency look similar except on extreme values
+* In <=50K class capital-gain averages seems pretty low, near 0, on the contrary with >50K that has variability in the averages.
 * The histogram shows a concentration in the botton left on both graphs
 
 ### Age vs Hours per Weed per Class
@@ -75,3 +68,43 @@ Prediction task is to determine whether a person makes over 50K a year.
 
 * In avarege people of `>50K` works more thatn the people `<=50K` in every age.
 * The histogram shows that also people despite there are people that works a few hours, and other works lots of hours, there are concentration between 40 and 50 hours for the people in the class `>50K`
+
+## MODEL PERFORMANCE
+
+I executed 3 model: 
+
+* Logistic Regresion
+* KNN Classifier
+* XGBoost.
+
+and I had these results:
+
+**Logistic Regresion**
+* Accuracy: .80
+* Precision: .55
+* Recall: .83
+
+**KNN**
+* Accuracy: .79
+* Precision: .55
+* Recall: .70
+
+**XGBoost**
+* Accuracy: .82
+* Precision: .59
+* Recall: .76
+
+Without performing any PCA, despite the XGBoost performed well in `accuracy` and `precision`,it went bad in `recall`. I chose the Logistic Regression model to continue tuning by performing PCA,
+
+After PCA, I got these results:
+
+**Logistic Regression With PCA**
+* Accuracy = .79
+* Precision = .54
+* Recall = .84
+
+The model performed better without PCA.
+
+## RECOMMENDATION
+
+Despite PCA is a powerful tool for avoiding overfiting, in this case, it didn't add performance to the model. I recomend the Logistic Regression without the PCA.
