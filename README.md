@@ -94,7 +94,9 @@ and I had these results:
 * Precision: .59
 * Recall: .76
 
-Without performing any PCA, despite the XGBoost performed well in `accuracy` and `precision`,it went bad in `recall`. I chose the Logistic Regression model to continue tuning by performing PCA,
+The three models did it bad in precision, very low precision, but if we see at accuracy and recall, Logistic Performed better.
+
+I am giving importance to recall because is telling me how many of the of the positive cases were predicted correctly over all the positive. This is very important if I am trying to predict who is waging more than 50K a year, I want to predict this value correctly.
 
 After PCA, I got these results:
 
